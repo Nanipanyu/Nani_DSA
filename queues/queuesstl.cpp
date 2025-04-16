@@ -16,6 +16,4 @@ int main(){
         cout<<"queue is not empty"<<endl;
     }
     cout<<q.front();
-
-
 }
