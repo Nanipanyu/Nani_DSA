@@ -29,6 +29,27 @@ int mincost(int index,int n, vector<int> days, vector<int> cost,vector<int> &dp)
     return dp[index];
 }
 
+int SolveTab(int n, vector<int> days, vector<int> cost)
+{
+    vector<int> dp(n+1,INT_MAX);
+    dp[n]=0;  //backtracking base case, if we have no days left to travel, we need 0 coins.
+    //we will start from the last day and move to the first day, so we can use the dp array to store the minimum coins required for each day.
+
+    for(int k=n-1;k>=0;k--){
+        int option1=cost[0]+dp[k+1]; //take 1 day pass, and go backwards, the front was the mincost for till that day.
+
+        int i;
+        for(i=k;i<n && days[i]<days[k]+7;i++); //when went a day back , check for the cost of forward seven days using seven day pass(later we will check  that if it would have been cheaper travelled with 7 days pass)
+        int option2 = cost[1]+dp[i];  //dp[i]=min cost till the (last/7th day/for 7 daypass)day just after we  travel with 7 days pass.
+
+        for(i=k;i<n && days[i]<days[k]+30;i++);
+        int option3 = cost[2]+dp[i];  //dp[i]=min cost till the (last/30th day/for 30 daypass)day just after we  travel with 30 days pass.
+
+        dp[k]=min(option1,min(option2, option3));  //when went a day back , check for the cost of forward 30 days using seven day pass(later we will check  that if it would have been cheaper travelled with 30 days pass)
+    }
+    return dp[0];
+}
+
 int minimumCoins(int n, vector<int> days, vector<int> cost)
 {
     vector<int> dp(n+1,-1);
