@@ -19,11 +19,13 @@ class Node{
         cout<<"node of value is freed"<<value<<endl;
     }
 };
+
 void insertattail(Node* &tail,int d){
     Node* temp=new Node(d);
     tail->next=temp;
     tail=temp;
 }
+
 void insertatmiddle(Node* &tail,Node* &head,int d,int n){
     Node* mid=new Node(d);
     Node* temp=head;

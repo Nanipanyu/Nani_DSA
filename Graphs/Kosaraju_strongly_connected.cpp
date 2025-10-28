@@ -13,7 +13,7 @@ void dfs(int node,stack<int> &st,vector<bool> &vis,unordered_map<int,vector<int>
 			dfs(nbr,st,vis,adj);
 		}
 	}
-	st.push(node);
+	st.push(node);                                                    //remember to push after all its neighbour have been visited, so that in transpose graph we can start from node which finished last
 	return;
 }
 

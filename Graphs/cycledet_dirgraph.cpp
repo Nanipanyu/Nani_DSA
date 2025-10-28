@@ -21,7 +21,7 @@ unordered_map<int,bool> &visdfs, unordered_map<int,vector<int>> &adj){
         return true;
       } 
   }
-  visdfs[node]=false;
+  visdfs[node]=false;                                      //backtracking step: when we are leaving the node after all its children have been processed, mark it false in visdfs, so that if the this nodes come back in another dfs call, it is not part of that dfs cycle
   return false;
 }
 
@@ -34,7 +34,7 @@ int detectCycleInDirectedGraph(int n, vector < pair < int, int >> & edges) {
         adj[u].push_back(v);
     }
     unordered_map<int,bool> visited;
-    unordered_map<int,bool> visdfs;
+    unordered_map<int,bool> visdfs;                                                              //to check if the node is visited in the current dfs call or not, to differentiate actual cycle and cross edge
     for(int i=0;i<n;i++){  //checking all nodes,because there can be cases of disconnected graphs
         if(!visited[i]){ 
             bool ans=iscycledfs(i,visited,visdfs,adj);

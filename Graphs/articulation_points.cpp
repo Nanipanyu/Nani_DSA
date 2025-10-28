@@ -19,7 +19,7 @@ vector<int> &disc,vector<int> &low,int parent,int &timer,vector<bool> &ap){
         else if(!vis[nbr]){
             dfs(nbr,adj,vis,disc,low,node,timer,ap);
             low[node]=min(low[node],low[nbr]);
-            if(low[nbr]>=disc[node] && parent!=-1){
+            if(low[nbr]>=disc[node] && parent!=-1){                                             //because if low[neighbour]<disc[node] , that means there is one more  way/node to reach neighbour(edge is not bridge) ,but if low[neighbour]>=disc[node] ,means there is only on way to reach the neighbour, hence it is a bridge edge
                 ap[node]=true;
             }
             child++;

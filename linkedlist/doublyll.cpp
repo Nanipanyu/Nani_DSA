@@ -35,6 +35,7 @@ void insertathead(Node* &head,Node* &tail,int data){
         head=temp;
     }
 }
+
 void insertattail(Node* &tail,Node* &head,int data){
     // if empty Node
     if(tail==NULL){

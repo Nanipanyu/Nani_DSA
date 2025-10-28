@@ -14,21 +14,24 @@ class node{
         }
 
 };
+
 node* buildtree(node* root){
     int data;
     cout<<"Enter the data for the node"<<" "<<endl;
     cin>>data;
-    root=new node(data);
+    root = new node(data);
+
     if(data==-1){
         return NULL;
     }
+    
     cout<<"Enter data for inserting in left of"<<" "<<data<<endl;
     root->left=buildtree(root->left);
     cout<<"Enter data for inserting in right of"<<" "<<data<<endl;
     root->right=buildtree(root->right);
-
     return root;
 }
+
 void buildfromlevelorder(node* &root){  //taking input in level order
     queue<node*> q;
     cout<<"Enter your data for node"<<endl;

@@ -35,11 +35,11 @@ Node* reverse(Node* head, int k){
     Node* curr=head;
     Node *forward=NULL;
     while(curr!=NULL && count<k){  //reversing till kth posn
-    forward=curr->next;
-    curr->next=prev;
-    prev=curr;
-    curr=forward;
-    count++;
+        forward=curr->next;
+        curr->next=prev;
+        prev=curr;
+        curr=forward;
+        count++;
     }
     if(curr!=NULL){ //base case
         head->next=reverse(forward,k);  //attaching the rotated head with the remaining nodes after them  being rotated

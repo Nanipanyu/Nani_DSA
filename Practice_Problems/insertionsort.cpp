@@ -6,15 +6,13 @@ void insertion_sort(int arr[],int n){
         int j=i-1;
         for(;j>=0;j--){
             if(arr[j]>temp){
-                arr[j+1]=arr[j];  //shifting the left element to right
-
+                arr[j+1]=arr[j];  //shifting the left element to right , works something like (say j starts from 4) [2,3,4,5,1] -> [2,3,4,5,5] -> [2,3,4,4,5] -> [2,3,3,4,5] -> [2,2,3,4,5] -> [1,2,3,4,5]
             }
             else{
                 break;
             }
         }
         arr[j+1]=temp;
-
     }
     for(int k=0;k<n;k++){
         cout<<arr[k]<<" ";

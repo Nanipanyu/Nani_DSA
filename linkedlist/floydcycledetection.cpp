@@ -52,7 +52,7 @@ bool loopcheck(Node* head){
     }
     Node* fast=head;
     Node* slow=head;
-    while(fast!=NULL && slow!=NULL){ //in floyd detection algorithm when both slow and fast enters loop with every iteration distance between them decreases by 1 step
+    while(fast!=NULL && slow!=NULL){ //in floyd detection algorithm when both slow and fast enters loop with every iteration distance between them decreases by 1 step ; tortoise hare method
         slow=slow->next;
         fast=fast->next->next;       
         if(fast==slow){

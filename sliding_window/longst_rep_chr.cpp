@@ -2,7 +2,7 @@
 #include <string>
 #include <unordered_map>
 using namespace std;
-
+ //find the length of the longest substring that can be obtained by replacing at most k characters in the string s with any other character. The substring must consist of only one unique character after replacements.
 class Solution {
 public:
     int characterReplacement(string s, int k) {

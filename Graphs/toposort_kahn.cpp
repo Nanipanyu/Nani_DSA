@@ -21,7 +21,7 @@ vector<int> topologicalSort(vector<vector<int>> &edges, int v, int e)  {
         }
     }
     queue<int> q; 
-    vector<int> ans;
+    vector<int> ans; 
 
     //if a node indegree is 0(i.e no parents(first node)) then push it in queue.
     for (int i = 0; i < v; i++) {

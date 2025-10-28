@@ -14,6 +14,7 @@ int mini(vector<int> &vec, vector<bool> &mst){
     return minIndex; // -1 if no valid node is found
 }
 
+    
 vector<pair<pair<int, int>, int>> calculatePrimsMST(int n, int m, vector<pair<pair<int, int>, int>> &g)
 {
     vector<int> key(n+1,INT_MAX); //key vector will store the weights of edges, initially set to inf

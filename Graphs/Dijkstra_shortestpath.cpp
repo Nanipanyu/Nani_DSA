@@ -7,7 +7,7 @@ using namespace std;
 
 vector<int> dijkstra(vector<vector<int>> &vec, int vertices, int edges, int source) {//vec has [x,y,w] x&y=neighbour(nodes) and w=weight of edge(distance)
 
-     unordered_map<int,vector<pair<int,int>>> adj; //pair will have the neighbour and its edge weight(distance to that neighbour)
+    unordered_map<int,vector<pair<int,int>>> adj; //pair will have the neighbour and its edge weight(distance to that neighbour)
 
      //In this graph we also have weight in a edge which is similar to distance of the edge
     for(int i=0;i<edges;i++){
@@ -33,7 +33,7 @@ vector<int> dijkstra(vector<vector<int>> &vec, int vertices, int edges, int sour
         st.erase(st.begin()); //pop E1
         for(auto neighbour:adj[topnode]){ //traverse through neighbour of topnode(E1 node)
             if(distance[neighbour.first]>dist+neighbour.second){  //if distance of neighbour from src:D1[distance[neighbour.first]] is greater than D2[distance of node from src + distance of node to neighbour], than D1 should be replaced by D2(shorter path), but below condition should be checked
-                auto record = st.find(make_pair(distance[neighbour.first], neighbour.first)); //if the neighbour node  is already present in set than it should be removed first
+                auto record = st.find(make_pair(distance[neighbour.first], neighbour.first)); //if the neighbour node  is already present in set than it should be removed first, to ensure no path along the older route is considered
                 if (record != st.end()) {  //st.find returns an iterator if the pair is present ,if not it returns st.end
                     st.erase(record);
                 }

@@ -45,7 +45,7 @@ public:
         int e=s.size();
         vector<int> db(3,-1);
         while(r<s.size()){
-           db[s[r]-'a']=r;
+           db[s[r]-'a']=r; //last seen index of character a,b,c
            if(db[0]!=-1 && db[1]!=-1 && db[2]!=-1){
                 ans=ans+min(min(db[0],db[1]),db[2])+1; //here when all three characters are present, we find the minimun window from the right side(where condition is satisfied) to the left side, which replaces the inner while loop in Approach1.here min(db[0],db[1],db[2]) gives the leftmost index among the three characters, to find the smallest window that contains all three characters.
            }

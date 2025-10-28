@@ -7,17 +7,17 @@ using namespace std;
 void dfs(int node,int &step,unordered_map<int,vector<int>> &adj,vector<int> &low,
     vector<int> &disc,vector<bool> &visited,int &parent,vector<vector<int>> &result){
         
-        visited[node]=true; //amrk it visited
+        visited[node]=true; //mark it visited
         disc[node]=low[node]=step++; //initially set their low and discovery to step and increase the step number.
         for(auto neighbour:adj[node]){ //traverse dfs
-            if(neighbour==parent){ //node is backtraking( going back to its parent)
+            if(neighbour==parent){ //node is backtraking( going back to its parent).
                 continue;
             }
             if(!visited[neighbour]){ //if not backtracking and not visited
                 dfs(neighbour,step,adj,low,disc,visited,node,result); 
                 low[node]=min(low[node],low[neighbour]); //after traversing through all the neighbours, when going to parent node update the low of parent node, because one of their neighbour might have backedge(i.e other way to reach)
                 //check edge is bridge
-                if(low[neighbour]>disc[node]){ //beacuse if low[neighbour]<disc[node] , that means there is one more  way to reach neighbour(edge is not bridge) ,but if low[neighbour]>disc[node] ,means there is only on way to reach the neighbour, hence it is a bridge edge
+                if(low[neighbour]>disc[node]){ //beacuse if low[neighbour]<=disc[node] , that means there is one more  way/bridge to reach neighbour(edge is not bridge) ,but if low[neighbour]>disc[node] ,means there is only on way to reach the neighbour, hence it is a bridge edge
                     vector<int> ans;
                     ans.push_back(node);
                     ans.push_back(neighbour);

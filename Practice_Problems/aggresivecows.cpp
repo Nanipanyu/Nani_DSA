@@ -2,12 +2,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 bool ispossible(int arr[],int mid,int k,int n){
-    
     int lastcount=arr[0];
     int cow=1;
     
     for(int i=0;i<n;i++){
-
         if((arr[i]-lastcount)>=mid){
             cow++;
             if(cow==k){
@@ -17,8 +15,6 @@ bool ispossible(int arr[],int mid,int k,int n){
         }
     }
     return false;
-    
-
 }
 int space(int arr[],int n,int k){
     sort(arr,arr+n);
@@ -41,21 +37,14 @@ int space(int arr[],int n,int k){
 
         if(ispossible(arr,mid,k,n)){
             s=mid+1;
-
         }
         else{
             e=mid-1;
         }
         mid=s+((e-s)/2);
-        
-            
-        
-        
     }
     return mid;
 }
-
-
 
 
 int main(){
